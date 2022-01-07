@@ -1,4 +1,4 @@
-origin ling : https://github.com/amrfarid140/webrtc-android-codelab
+origin lin : https://github.com/amrfarid140/webrtc-android-codelab
 
 - 하울링(에코) 최소화
 - 스피커 모드 추가
