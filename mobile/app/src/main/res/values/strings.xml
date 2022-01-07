@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">webrtc-demo</string>
+    <string name="pref_speakerphone_default">auto</string>
+    <string name="pref_speakerphone_key">speakerphone_preference</string>
+</resources>
