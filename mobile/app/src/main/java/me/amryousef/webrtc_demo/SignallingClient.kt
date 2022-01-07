@@ -12,17 +12,12 @@ import io.ktor.client.features.websocket.ws
 import io.ktor.http.cio.websocket.Frame
 import io.ktor.http.cio.websocket.readText
 import io.ktor.util.KtorExperimentalAPI
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.Job
+import kotlinx.coroutines.*
 import kotlinx.coroutines.channels.ConflatedBroadcastChannel
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
-import kotlinx.coroutines.withContext
 import org.webrtc.IceCandidate
 import org.webrtc.SessionDescription
 
+@ObsoleteCoroutinesApi
 @ExperimentalCoroutinesApi
 @KtorExperimentalAPI
 class SignallingClient(
@@ -46,12 +41,14 @@ class SignallingClient(
         }
     }
 
+    @ObsoleteCoroutinesApi
     private val sendChannel = ConflatedBroadcastChannel<String>()
 
     init {
         connect()
     }
 
+    @ObsoleteCoroutinesApi
     private fun connect() = launch {
         client.ws(host = HOST_ADDRESS, port = 80, path = "/connect") {
             listener.onConnectionEstablished()
@@ -59,7 +56,7 @@ class SignallingClient(
             try {
                 while (true) {
 
-                    sendData.poll()?.let {
+                    sendData.tryReceive().getOrNull()?.let {
                         Log.v(this@SignallingClient.javaClass.simpleName, "Sending: $it")
                         outgoing.send(Frame.Text(it))
                     }

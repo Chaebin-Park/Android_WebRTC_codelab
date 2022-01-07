@@ -1,9 +1,7 @@
 package me.amryousef.webrtc_demo
 
 import android.Manifest
-import android.content.DialogInterface
 import android.content.pm.PackageManager
-import android.media.audiofx.AcousticEchoCanceler
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
@@ -11,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.view.isGone
-import io.ktor.util.KtorExperimentalAPI
+import io.ktor.util.*
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import me.amryousef.webrtc_demo.databinding.ActivityMainBinding

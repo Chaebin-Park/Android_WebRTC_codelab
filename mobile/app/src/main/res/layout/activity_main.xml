@@ -45,15 +45,11 @@
             android:layout_height="match_parent"
             android:src="@drawable/ic_baseline_speaker_up_24"/>
 
+        <ImageButton
+            android:id="@+id/call_button"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:src="@android:drawable/ic_menu_call"/>
+
     </LinearLayout>
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/call_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:clickable="false"
-        app:srcCompat="@android:drawable/ic_menu_call"
-        android:layout_gravity="bottom|end"/>
-
 </FrameLayout>
